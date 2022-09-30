@@ -1,0 +1,76 @@
+iniciar-programa
+    define-nueva-instruccion gira-derecha como
+    inicio
+        repetir 3 veces gira-izquierda;
+    fin;
+    define-nueva-instruccion salir-del-mundo como
+    inicio
+        gira-derecha;
+        avanza;
+        gira-derecha;
+        mientras frente-libre hacer avanza;
+        gira-derecha;
+        mientras frente-libre hacer avanza;
+        repetir 2 veces gira-izquierda;
+        avanza;
+        mientras algun-zumbador-en-la-mochila hacer deja-zumbador;
+        repetir 2 veces gira-izquierda;
+        avanza;
+        gira-derecha;
+        apagate;
+    fin;
+    define-nueva-instruccion regresa-al-inicio como
+    inicio
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        mientras derecha-bloqueada hacer avanza;
+        salir-del-mundo;
+    fin;
+    define-nueva-instruccion verifica-bloqueo como
+    inicio
+        si frente-bloqueado entonces regresa-al-inicio;
+    fin;
+    define-nueva-instruccion recoge-semillas como
+    inicio
+
+        mientras no-orientado-al-este hacer gira-izquierda;
+        avanza;
+        mientras junto-a-zumbador hacer coge-zumbador;
+        repetir 2 veces gira-izquierda;
+        avanza;
+        gira-derecha;
+        avanza;
+    fin;
+    define-nueva-instruccion inicio-terreno como
+    inicio
+         mientras derecha-bloqueada hacer avanza;
+         gira-derecha;
+         avanza;
+         gira-derecha;
+         mientras frente-libre hacer avanza;
+         repetir 2 veces gira-izquierda;
+    fin;
+    define-nueva-instruccion a-sembrar como
+    inicio
+        mientras frente-libre hacer
+        inicio
+            deja-zumbador;
+            avanza;
+            si frente-bloqueado entonces
+            inicio
+                deja-zumbador;
+                repetir 2 veces gira-izquierda;
+                mientras frente-libre hacer avanza;
+                gira-izquierda;
+                verifica-bloqueo;
+                avanza;
+                gira-izquierda;
+            fin;
+        fin;
+    fin;
+    inicia-ejecucion
+         recoge-semillas;
+         inicio-terreno;
+         a-sembrar;
+        apagate;
+    termina-ejecucion
+finalizar-programa

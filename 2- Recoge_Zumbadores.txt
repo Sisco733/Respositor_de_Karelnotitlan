@@ -1,0 +1,29 @@
+iniciar-programa
+define-nueva-instruccion recoge como inicio
+    mientras frente-libre hacer inicio
+        mientras junto-a-zumbador hacer coge-zumbador;
+        avanza;
+        mientras junto-a-zumbador hacer coge-zumbador;
+    fin;
+    gira-izquierda;
+    gira-izquierda;
+    mientras frente-libre hacer avanza;
+    gira-izquierda;
+    si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        recoge;
+    fin sino inicio
+        gira-izquierda;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        mientras algun-zumbador-en-la-mochila hacer deja-zumbador;
+    fin;
+
+fin;
+
+    inicia-ejecucion
+    recoge;
+        apagate;
+    termina-ejecucion
+finalizar-programa
